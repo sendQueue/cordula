@@ -1,3 +1,10 @@
+/**
+ * @author sendQueue <Vincent Ullrich>
+ *
+ *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 29.01.2021.
+ * 
+ */
+
 // 28x28
 // 0 - pac-dots
 // 1 - wall
@@ -85,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	createBoard();
 
-	let pacmanCurrentIndex = 490;
+	let pacmanCurrentIndex = 154;
 	let pacmanVelocity = {
 		x: 0,
 		y: 0,

@@ -1,3 +1,10 @@
+/**
+ * @author sendQueue <Vincent Ullrich>
+ *
+ *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 29.01.2021.
+ * 
+ */
+
 function newCordula() {
 	var cordula = document.createElement("img");
 	cordula.setAttribute("src", "assets/img/c.png");
