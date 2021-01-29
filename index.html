@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cordula</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <div class="overlay-screen" id="start-screen">
+      <h1>CORDULA</h1>
+      <h2 id="start-msg">Drücke &crarr; um zu starten</h2>
+      <h2>&larr; &uarr; &darr; &rarr; für Bewegung</h2>
+      <p> &copy; Vincent Ullrich</p>
+    </div>
+    <div class="game-container">
+      <div class="grid"></div>
+      <h2>Score:<span id="score">0</span></h2>
+    </div>
+    <div class="overlay-screen" id="game-over-screen">
+      <h1>GAME OVER!</h1>
+      <h4>Highscore: <span id="highscore"></span></h4>
+    </div>
+    <div class="overlay-screen" id="you-won-screen">
+      <h1>YOU WON!</h1>
+    </div>
+  </body>
+</html>
