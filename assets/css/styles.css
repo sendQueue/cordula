@@ -148,13 +148,12 @@ h2 {
   color: #0bf117;
   font-size: 6rem;
   justify-content: center;
-  /* background-color: black;
-  color: white; */
   flex-direction: column;
   align-items: center;
   animation: blink 0.8s infinite;
   display: none;
 }
+
 #you-won-screen h1 {
   color: yellow;
   font-size: 4rem;
