@@ -348,6 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scared-ghost");
 				ghost.currentIndex = ghost.startIndex;
 				score += 100;
+				scoreDisplay.innerHTML = score;
 				count++;
 				
 				squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
