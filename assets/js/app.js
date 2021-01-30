@@ -1,7 +1,7 @@
 /**
  * @author sendQueue <Vincent Ullrich>
  *
- *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 29.01.2021.
+ *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 30.01.2021.
  * 
  */
 
@@ -44,6 +44,7 @@ var layout = [
 
 
 var needToWin = 0;
+var count = 0;
 
 var xDown = null;
 var yDown = null;
@@ -51,6 +52,27 @@ var yDown = null;
 var unscareTime;
 
 document.addEventListener("DOMContentLoaded", () => {
+	const fW = parseInt((document.documentElement.clientWidth - 28) / 28);
+	const fH = parseInt((document.documentElement.clientHeight - 28) / 28);
+
+	const factor = Math.min(fW, fH);
+	console.log(factor);
+	var newWidth = factor * 28;
+
+	var style = document.createElement('style');
+	style.innerHTML = `
+	.grid {
+		height: ${newWidth}px;
+		width: ${newWidth}px;
+	}
+	.grid div {
+		width: ${factor}px;
+		height: ${factor}px;
+	  }
+	`;
+	document.head.appendChild(style);
+
+	const player = newPlayer(factor);
 	const width = 28;
 	let score = 0;
 	const scoreDisplay = document.getElementById("score");
@@ -65,8 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		var all = ["green", "blue", "red", "purple", "orange"];
 		var img = document.createElement("img");
 		img.setAttribute("src", "assets/img/" + all[parseInt(getRandom(0, all.length - 1))] + ".png");
-		img.setAttribute("height", "20");
-		img.setAttribute("width", "20");
+		img.setAttribute("height", parseInt(factor * 0.72));
+		img.setAttribute("width", parseInt(factor * 0.72));
 		return img;
 	}
 
@@ -102,7 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	squares[pacmanCurrentIndex].appendChild(player);
 
 	function setPacmanVelocityTouch(evt) {
-		if (!xDown || !yDown) {
+
+		if (!xDown || !yDown) { 
 			return;
 		}
 
@@ -111,7 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		var xDiff = xDown - xUp;
 		var yDiff = yDown - yUp;
 
-		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+	
+		if (Math.abs(xDiff) * 0.75 > Math.abs(yDiff)) {
 			if (xDiff > 0) {
 				/* left swipe */
 				if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains(
@@ -146,8 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 
-		xDown = null;
-		yDown = null;
+		// xDown = null;
+		// yDown = null;
 		checkForGameOver();
 	};
 	function setPacmanVelocityKeys(e) {
@@ -288,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	ghosts = [
-		new Ghost("Cordula", 680, 200, newCordula()),
+		new Ghost("Cordula", 680, 250, newCordula(factor)),
 	];
 
 	ghosts.forEach((ghost) => {
@@ -324,11 +348,16 @@ document.addEventListener("DOMContentLoaded", () => {
 				squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scared-ghost");
 				ghost.currentIndex = ghost.startIndex;
 				score += 100;
+				count++;
+				
 				squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
 			}
+			ghost.speed -= 5;
+			
 			squares[ghost.currentIndex].appendChild(ghost.icon);
 			checkForGameOver();
 		}, ghost.speed);
+		console.log(ghost.speed);
 	}
 
 	function checkForGameOver() {
@@ -358,14 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function checkForWin() {
-		var count = 0;
-		for (var i = 0; i < squares.length; i++) {
-			if (squares[i].classList.contains("ghost")) {
-				count++;
-			}
-		}
-
-		if (count == 0) {
+		if (count == 100) {
 			ghosts.forEach((ghost) => clearInterval(ghost.timerId));
 			document.removeEventListener("keyup", movePacman);
 			document.getElementById("you-won-screen").style.display = "flex";
@@ -383,7 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (event.keyCode === 13) {
 			document.removeEventListener("keydown", startGame);
 			document.getElementById("start-screen").style.display = "none";
-			document.addEventListener("keyup", setPacmanVelocityKeys);
+			document.addEventListener("keydown", setPacmanVelocityKeys);
 
 			movePacman();
 			ghosts.forEach((ghost) => moveGhost(ghost));
@@ -397,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	function startGameTouch(event) {
-		document.removeEventListener("touchstart", startGame2);
+		document.removeEventListener("touchstart", startGameTouch);
 		document.addEventListener('touchstart', handleTouchStart, false);
 		document.addEventListener('touchmove', setPacmanVelocityTouch, false);
 		document.getElementById("start-screen").style.display = "none";

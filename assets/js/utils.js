@@ -5,18 +5,22 @@
  * 
  */
 
-function newCordula() {
+function newCordula(factor) {
 	var cordula = document.createElement("img");
 	cordula.setAttribute("src", "assets/img/c.png");
-	cordula.setAttribute("height", "28");
-	cordula.setAttribute("width", "28");
+	cordula.setAttribute("height", factor);
+	cordula.setAttribute("width", factor);
 	cordula.setAttribute("id", "cordula");
 	return cordula;
 }
 
-var player = document.createElement("img");
-player.setAttribute("src", "assets/img/ss.png");
-player.setAttribute("height", "28");
-player.setAttribute("width", "28");
-player.setAttribute("id", "player");
+function newPlayer(factor) {
+	var player = document.createElement("img");
+	player.setAttribute("src", "assets/img/ss.png");
+	player.setAttribute("height", factor);
+	player.setAttribute("width", factor);
+	player.setAttribute("id", "player");
+	return player;
+}
+
 

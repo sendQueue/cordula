@@ -6,6 +6,9 @@
 * {
   margin: 0;
   padding: 0;
+  /* height: 100%; */
+  overflow-y: hidden;
+  /* position: relative; */
 }
 
 body {
@@ -15,7 +18,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  margin: 0; 
+
 }
 
 .game-container {
@@ -30,15 +34,15 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  width: 784px;
-  height: 784px;
+  /* width: 924px;
+  height: 924px; */
   border: 0.2px solid rgb(1, 17, 17);
 
 }
 
 .grid div {
-  width: 28px;
-  height: 28px;
+  /* width: 33px;
+  height: 33px; */
 }
 
 .power-pellet {
