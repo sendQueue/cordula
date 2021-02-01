@@ -1,7 +1,7 @@
 /**
  * @author sendQueue <Vincent Ullrich>
  *
- *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 30.01.2021.
+ *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 01.02.2021.
  * 
  */
 
@@ -50,6 +50,7 @@ var xDown = null;
 var yDown = null;
 
 var unscareTime;
+let gameOver = false;
 
 document.addEventListener("DOMContentLoaded", () => {
 	const fW = parseInt((document.documentElement.clientWidth - 28) / 28);
@@ -289,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			squares[newPallet].classList.add("power-pellet");
 			squares[newPallet].appendChild(newPellet());
 			ghosts.forEach((ghost) => (ghost.isScared = true));
-			unscareTime = setTimeout(unScareGhosts, 10000);
+			unscareTime = setTimeout(unScareGhosts, Math.max(4000, 10000 - count * 20));
 			squares[pacmanCurrentIndex].classList.remove("power-pellet");
 			squares[pacmanCurrentIndex].innerHTML = "";
 			checkForWin();
@@ -336,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				var nD = getNextMove(pacmanCurrentIndex, ghost.currentIndex, width);
 				if (!squares[ghost.currentIndex +
 					nD].classList.contains("wall") && getDis(pacmanCurrentIndex, ghost.currentIndex, width) > getDis(pacmanCurrentIndex, ghost.currentIndex + nD, width) + ghost.isScared ? 2 : 0
-					) {
+				) {
 					direction = nD;
 				}
 
@@ -359,9 +360,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				ghost.icon.setAttribute("src", "assets/img/c.png");
 			}
 
-			if (ghost.isScared && squares[ghost.currentIndex].classList.contains("pac-man")) {
+			if (ghost.isScared && (squares[ghost.currentIndex].classList.contains("pac-man") || squares[ghost.currentIndex + direction].classList.contains("pac-man") || squares[ghost.currentIndex - direction].classList.contains("pac-man"))) {
 				squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scared-ghost");
-				ghost.currentIndex = ghost.startIndex;
+				ghost.currentIndex = pelletPositions[parseInt(getRandom(0, pelletPositions.length - 1))];;
 				score += 100;
 				scoreDisplay.innerHTML = score;
 				count++;
@@ -379,6 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function checkForGameOver() {
 		if (squares[pacmanCurrentIndex].classList.contains("ghost") && !squares[pacmanCurrentIndex].classList
 			.contains("scared-ghost")) {
+			gameOver = true;
 			ghosts.forEach((ghost) => clearInterval(ghost.timerId));
 
 			document.removeEventListener("keyup", movePacman);
@@ -388,17 +390,15 @@ document.addEventListener("DOMContentLoaded", () => {
 			pacmanVelocity.y = 0;
 
 			if (localStorage.getItem("cordula_score") != null) {
-				highscore.innerHTML = localStorage.getItem("cordula_score");
 				if (localStorage.getItem("cordula_score") < score) {
 					localStorage.setItem("cordula_score", score);
 				}
+				highscore.innerHTML = localStorage.getItem("cordula_score");
 			} else {
 				localStorage.setItem("cordula_score", score);
 			}
 
-			setTimeout(function () {
-				window.location.reload();
-			}, 3000);
+			document.addEventListener("keydown", restart);
 		}
 	}
 
@@ -416,7 +416,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			}, 3500);
 		}
 	}
-
+	function restart(event) {
+		if (event.keyCode === 13 && gameOver) {
+			document.removeEventListener("keydown", restart);
+			window.location.reload();
+		}
+	}
 	function startGame(event) {
 		if (event.keyCode === 13) {
 			document.removeEventListener("keydown", startGame);

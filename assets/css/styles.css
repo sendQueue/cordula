@@ -138,12 +138,16 @@ h2 {
   color: white; */
   flex-direction: column;
   align-items: center;
-  animation: blink 0.8s infinite;
+  
   display: none;
 }
 #game-over-screen h4{
   font-size: 2rem;
   color: white;
+}
+
+#game-over-screen h1{
+  animation: blink 0.8s infinite;
 }
 
 #you-won-screen {

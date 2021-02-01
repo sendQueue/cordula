@@ -1,7 +1,7 @@
 /**
  * @author sendQueue <Vincent Ullrich>
  *
- *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 29.01.2021.
+ *         Further info at Vinii.de or github@vinii.de, file created at 17.01.2021 and last edited 01.02.2021.
  * 
  */
 
