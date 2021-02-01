@@ -11,36 +11,36 @@
 // 2 - ghost-lair
 // 3 - power-pellet
 // 4 - empty
-var layout = [ 
+var layout = [
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 	1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
 	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, //---
+	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
+	1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
 	1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-];
+];//1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8
 
 
 var needToWin = 0;
@@ -80,8 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector(".grid");
 	const squares = [];
 	var pelletPositions = [];
-	
+
 	const pacmanSpeed = 150;
+	//ghost index = 680
+	let pacmanCurrentIndex = 435;
 
 	function newPellet() {
 		var all = ["green", "blue", "red", "purple", "orange"];
@@ -114,18 +116,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	createBoard();
 
-	let pacmanCurrentIndex = 154;
 	let pacmanVelocity = {
 		x: 0,
 		y: 0,
 	};
-	
+
 	squares[pacmanCurrentIndex].classList.add("pac-man");
 	squares[pacmanCurrentIndex].appendChild(player);
 
 	function setPacmanVelocityTouch(evt) {
 
-		if (!xDown || !yDown) { 
+		if (!xDown || !yDown) {
 			return;
 		}
 
@@ -134,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		var xDiff = xDown - xUp;
 		var yDiff = yDown - yUp;
 
-	
+
 		if (Math.abs(xDiff) * 0.75 > Math.abs(yDiff)) {
 			if (xDiff > 0) {
 				/* left swipe */
@@ -208,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		checkForGameOver();
 	}
 
-	
+
 	function movePacman() {
 		squares[pacmanCurrentIndex].classList.remove("pac-man");
 		setInterval(() => {
@@ -312,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	ghosts = [
-		new Ghost("Cordula", 680, 250, newCordula(factor)),
+		new Ghost("Cordula", 627, 250, newCordula(factor)),
 	];
 
 	ghosts.forEach((ghost) => {
@@ -324,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function moveGhost(ghost) {
 		const directions = [-1, +1, width, -width];
 		let direction = directions[Math.floor(Math.random() * directions.length)];
+
 		ghost.timerId = setInterval(function () {
 
 			if (!squares[ghost.currentIndex + direction].classList.contains("ghost") && !squares[ghost.currentIndex +
@@ -331,16 +333,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				squares[ghost.currentIndex].classList.remove(ghost.className);
 				squares[ghost.currentIndex].classList.remove("ghost", "scared-ghost");
+				var nD = getNextMove(pacmanCurrentIndex, ghost.currentIndex, width);
+				if (!squares[ghost.currentIndex +
+					nD].classList.contains("wall") && getDis(pacmanCurrentIndex, ghost.currentIndex, width) > getDis(pacmanCurrentIndex, ghost.currentIndex + nD, width) + ghost.isScared ? 2 : 0
+					) {
+					direction = nD;
+				}
 
 				ghost.currentIndex += direction;
 				squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
 
-			} else {direction = directions[Math.floor(Math.random() * directions.length)];}
+			} else {
+				// direction = directions[Math.floor(Math.random() * directions.length)];
+				var nD = getNextMove(pacmanCurrentIndex, ghost.currentIndex, width);
+				console.log(nD)
+				direction = nD;
+				// console.log(Math.round((ghost.currentIndex / 28 - parseInt(ghost.currentIndex / 28)) * width));
+				// console.log(Math.round((pacmanCurrentIndex / 28 - parseInt(pacmanCurrentIndex / 28)) * width));
+			}
 
 			if (ghost.isScared) {
 				squares[ghost.currentIndex].classList.add("scared-ghost");
 				ghost.icon.setAttribute("src", "assets/img/ca.png");
-			}else{
+			} else {
 				ghost.icon.setAttribute("src", "assets/img/c.png");
 			}
 
@@ -350,11 +365,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				score += 100;
 				scoreDisplay.innerHTML = score;
 				count++;
-				
+
 				squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
 			}
 			ghost.speed -= 5;
-			
+
 			squares[ghost.currentIndex].appendChild(ghost.icon);
 			checkForGameOver();
 		}, ghost.speed);
@@ -371,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			pacmanVelocity.x = 0;
 			pacmanVelocity.y = 0;
-			
+
 			if (localStorage.getItem("cordula_score") != null) {
 				highscore.innerHTML = localStorage.getItem("cordula_score");
 				if (localStorage.getItem("cordula_score") < score) {
