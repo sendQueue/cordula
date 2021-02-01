@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const fH = parseInt((document.documentElement.clientHeight - 28) / 28);
 
 	const factor = Math.min(fW, fH);
-	console.log(factor);
 	var newWidth = factor * 28;
 
 	var style = document.createElement('style');
@@ -347,7 +346,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			} else {
 				// direction = directions[Math.floor(Math.random() * directions.length)];
 				var nD = getNextMove(pacmanCurrentIndex, ghost.currentIndex, width);
-				console.log(nD)
 				direction = nD;
 				// console.log(Math.round((ghost.currentIndex / 28 - parseInt(ghost.currentIndex / 28)) * width));
 				// console.log(Math.round((pacmanCurrentIndex / 28 - parseInt(pacmanCurrentIndex / 28)) * width));
@@ -374,7 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			squares[ghost.currentIndex].appendChild(ghost.icon);
 			checkForGameOver();
 		}, ghost.speed);
-		console.log(ghost.speed);
 	}
 
 	function checkForGameOver() {
