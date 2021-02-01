@@ -384,6 +384,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			ghosts.forEach((ghost) => clearInterval(ghost.timerId));
 
 			document.removeEventListener("keyup", movePacman);
+			document.removeEventListener('touchmove', setPacmanVelocityTouch);
+			document.removeEventListener('touchstart', handleTouchStart);
 			document.getElementById("game-over-screen").style.display = "flex";
 
 			pacmanVelocity.x = 0;
@@ -399,6 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			document.addEventListener("keydown", restart);
+			document.addEventListener('touchstart', restart);
 		}
 	}
 
@@ -417,8 +420,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 	function restart(event) {
-		if (event.keyCode === 13 && gameOver) {
+		if (gameOver) {
 			document.removeEventListener("keydown", restart);
+			document.removeEventListener("touchstart", restart);
 			window.location.reload();
 		}
 	}
@@ -436,7 +440,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	function handleTouchStart(evt) {
 		xDown = evt.touches[0].clientX;
 		yDown = evt.touches[0].clientY;
-		console.log("start" + yDown);
 	};
 
 	function startGameTouch(event) {
